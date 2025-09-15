@@ -416,6 +416,59 @@
         });
 
     </script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // IMPORTANT: Replace the placeholders below with your actual EmailJS Public API Key
+        // Example: emailjs.init("abc123...your real key...");
+        (function(){
+            const EMAILJS_PUBLIC_KEY = "GUnFfNgNpdq9Io8dP";
+            if (EMAILJS_PUBLIC_KEY === "GUnFfNgNpdq9Io8dP") {
+                console.warn("[EmailJS] Please set your actual Public API Key in the code.");
+            } else {
+                emailjs.init(EMAILJS_PUBLIC_KEY);
+            }
+        })();
+    </script>
+
+    <script>
+        // IMPORTANT: Replace the placeholders below with your actual EmailJS Service ID and Template ID
+        // Example: const EMAILJS_SERVICE_ID = "service_abc123";
+        //          const EMAILJS_TEMPLATE_ID = "template_xyz456";
+        const EMAILJS_SERVICE_ID = "service_6x81ono";
+        const EMAILJS_TEMPLATE_ID = "template_jszflq6";
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (
+                EMAILJS_SERVICE_ID === "service_6x81ono" ||
+                EMAILJS_TEMPLATE_ID === "template_jszflq6" ||
+                typeof emailjs === 'undefined' ||
+                !emailjs.init
+            ) {
+                formStatus.textContent = "Email service is not configured. Please contact the site owner.";
+                return;
+            }
+
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+                name: name,
+                email: email,
+                message: message
+            })
+            .then(() => {
+                formStatus.textContent = "Thank you! Your message has been sent.";
+                contactForm.reset();
+                setTimeout(() => { formStatus.textContent = ""; }, 5000);
+            }, (error) => {
+                console.error('FAILED...', error);
+                formStatus.textContent = "Oops! Something went wrong.";
+            });
+        });
+    </script>
 </body>
 </html>
 
