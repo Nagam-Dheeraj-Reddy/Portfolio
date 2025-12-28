@@ -102,6 +102,121 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Contact Section */
+#contact {
+  position: relative;
+  padding: 5rem 1.5rem;
+}
+
+/* Form Container */
+#contact-form {
+  background: linear-gradient(145deg, #0f172a, #020617);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Inputs & Textarea */
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: #e5e7eb;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Placeholder */
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: #64748b;
+}
+
+/* Focus State */
+#contact-form input:focus,
+#contact-form textarea:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  background: rgba(2, 6, 23, 0.95);
+}
+
+/* Textarea */
+#contact-form textarea {
+  resize: none;
+  min-height: 130px;
+}
+
+/* Submit Button */
+#contact-form button {
+  margin-top: 0.5rem;
+  width: 100%;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #022c22;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 12px 30px rgba(34, 197, 94, 0.45);
+}
+
+/* Button Hover */
+#contact-form button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  box-shadow:
+    0 18px 40px rgba(34, 197, 94, 0.65);
+}
+
+/* Button Active */
+#contact-form button:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+}
+
+/* Status Text */
+#form-status {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 12px;
+  color: #22c55e;
+}
+
+/* Error State */
+#form-status.error {
+  color: #ef4444;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  #contact-form {
+    padding: 1.5rem;
+  }
+}
     </style>
 </head>
 <body class="antialiased">
@@ -112,9 +227,9 @@
     <canvas id="matrix-canvas"></canvas>
 
     <!-- Fixed Social Links Bar -->
-    <div class="hidden md:flex fixed left-0 bottom-0 z-30 px-4">
+    <div class="flex fixed left-0 bottom-0 z-30 px-4">
         <div class="flex flex-col items-center space-y-4 after:content-[''] after:w-px after:h-24 after:bg-gray-500 after:mt-4">
-            <a href="https://github.com" target="_blank" class="text-gray-400 hover:text-green-400 transition-all hover:-translate-y-1">
+            <a href="https://github.com/DheerajKlh" target="_blank" class="text-gray-400 hover:text-green-400 transition-all hover:-translate-y-1">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
             </a>
             <a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-green-400 transition-all hover:-translate-y-1">
@@ -151,27 +266,43 @@
 
             <!-- Hero Section -->
             <section id="home" class="min-h-screen flex items-center">
-                <div class="text-left max-w-4xl reveal">
-                    <h2 class="text-lg md:text-xl text-green-400 font-mono">Hi, my name is</h2>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-black my-4 leading-tight">Nagam Dheeraj Reddy.
-                        <br>
-                        <span id="typing-container" class="text-gray-400">
-                            <span id="typing-text"></span><span class="cursor">&nbsp;</span>
-                        </span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-gray-400 max-w-3xl">
-                        A dedicated Computer Science undergraduate with a passion for building full-stack web applications. I specialize in the MERN stack, creating efficient and user-centric solutions from concept to deployment.
-                    </p>
-                    <div class="mt-8 flex flex-wrap gap-4">
-                        <a href="#contact" class="nav-link inline-block px-8 py-4 bg-green-400 text-gray-900 font-bold rounded-lg hover:bg-green-300 transition-all duration-300 text-lg">
-                            Get In Touch
-                        </a>
-                        <a href="Resume_revised1.pdf" download="Nagam_Dheeraj_Reddy_Resume.pdf" class="group inline-flex items-center gap-x-2 px-8 py-4 border-2 border-green-400 text-green-400 font-bold rounded-lg hover:bg-green-400 hover:text-gray-900 transition-all duration-300 text-lg">
-                            <span>Download CV</span>
-                            <svg class="w-6 h-6 transition-transform duration-300 group-hover:animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
-                        </a>
-                    </div>
+              <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal">
+                <!-- Left: Text -->
+                <div class="text-left max-w-3xl">
+                  <h2 class="text-lg md:text-xl text-green-400 font-mono">Hi, my name is</h2>
+                  <h1 class="text-4xl sm:text-5xl md:text-6xl font-black my-4 leading-tight">
+                    Nagam Dheeraj Reddy.
+                    <br />
+                    <span id="typing-container" class="text-gray-400">
+                      <span id="typing-text"></span><span class="cursor">&nbsp;</span>
+                    </span>
+                  </h1>
+                  <p class="text-lg md:text-xl text-gray-400 max-w-3xl">
+                    A dedicated Computer Science undergraduate with a passion for building full-stack web applications. I specialize in the MERN stack, creating efficient and user-centric solutions from concept to deployment.
+                  </p>
+                  <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="#contact" class="nav-link inline-block px-8 py-4 bg-green-400 text-gray-900 font-bold rounded-lg hover:bg-green-300 transition-all duration-300 text-lg">
+                      Get In Touch
+                    </a>
+                    <a href="Coming Soon.docx" download="Nagam_Dheeraj_Reddy_Resume.pdf" class="group inline-flex items-center gap-x-2 px-8 py-4 border-2 border-green-400 text-green-400 font-bold rounded-lg hover:bg-green-400 hover:text-gray-900 transition-all duration-300 text-lg">
+                      <span>Download CV</span>
+                      <svg class="w-6 h-6 transition-transform duration-300 group-hover:animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
+                    </a>
+                  </div>
                 </div>
+
+                <!-- Right: Photo -->
+                <div class="flex justify-center md:justify-end mt-10 md:mt-0">
+                  <div class="w-56 h-56 md:w-72 md:h-72 rounded-full relative group">
+                    <div class="absolute inset-0 rounded-full animated-gradient z-0 transform group-hover:scale-105 transition-transform duration-300"></div>
+                    <img
+                      src="imgai.png"
+                      alt="Nagam Dheeraj Reddy"
+                      class="absolute inset-2 w-auto h-auto max-w-full max-h-full rounded-full object-cover z-10 border-4 border-gray-900 shadow-lg shadow-green-500/30"
+                    />
+                  </div>
+                </div>
+              </div>
             </section>
 
             <!-- About Section -->
@@ -236,10 +367,10 @@
                         <div class="flex-grow">
                             <div class="flex justify-between items-center mb-4">
                                <svg class="w-10 h-10 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0h18M12 12.75h.008v.008H12v-.008z" />
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
                                </svg>
                                 <div class="flex space-x-4">
-                                    <a href="#" class="text-gray-400 hover:text-green-400 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                                    <a href="https://github.com/Nagam-Dheeraj-Reddy/event-planner" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-400 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
                                 </div>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-gray-100">Event Management System</h3>
@@ -259,11 +390,12 @@
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c.51 0 .962-.328 1.09-.835l1.823-6.44a1.125 1.125 0 00-.44-1.228l-6.32-3.95a1.125 1.125 0 00-1.606 0l-6.32 3.95a1.125 1.125 0 00-.44 1.228l1.823 6.44C4.66 13.922 5.11 14.25 5.62 14.25h1.88M7.5 14.25a3 3 0 00-3 3h.008v.008h-.008v-.008zm0 0H0m.008 0h.008v.008h-.008v-.008zm7.5 0a3 3 0 00-3 3h.008v.008h-.008v-.008zm0 0h-.008l.008.008v.008h-.008v-.008zm7.5 0a3 3 0 00-3 3h.008v.008h-.008v-.008zm0 0h-.008l.008.008v.008h-.008v-.008z" />
                                </svg>
                                 <div class="flex space-x-4">
-                                    <a href="#" class="text-gray-400 hover:text-green-400 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                                    <a href="https://github.com/Nagam-Dheeraj-Reddy/Trackt" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-400 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
                                 </div>
                             </div>
-                            <h3 class="text-xl font-bold mb-2 text-gray-100">Online Grocery Delivery</h3>
-                            <p class="text-gray-400 text-sm">An e-commerce platform connecting customers with local sellers, featuring product search, order tracking, and a secure payment flow with Firebase Authentication.</p>
+                            <h3 class="text-xl font-bold mb-2 text-gray-100">Trackt</h3>
+                            <p class="text-gray-400 text-sm">WarrantyVault is a MERN-based application designed to digitally manage product warranties with real-time status tracking.
+It provides dashboards, expiry alerts, document uploads, and secure user authentication.</p>
                         </div>
                         <div class="mt-6 flex flex-wrap gap-2">
                            <span class="text-xs font-mono text-green-400">MERN Stack</span>
@@ -278,7 +410,7 @@
                                   <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125V14.25m-17.25 4.5v-1.875a3.375 3.375 0 003.375-3.375h1.5a1.125 1.125 0 011.125 1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
                                 </svg>
                                 <div class="flex space-x-4">
-                                    <a href="#" class="text-gray-400 hover:text-green-400 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                                    <a href="https://github.com/DheerajKlh/YOUR_SMART_SPEED_BREAKERS_REPO" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-green-400 transition-colors"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
                                 </div>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-gray-100">Smart Speed Breakers</h3>
@@ -304,15 +436,13 @@
                 </p>
                 
                 <form id="contact-form" class="space-y-4 text-left">
-                    <input type="text" id="name" placeholder="Your Name" class="w-full bg-gray-800 border border-gray-700 rounded-md p-3 focus:ring-2 focus:ring-green-400 focus:outline-none transition-all" required>
-                    <input type="email" id="email" placeholder="Your Email" class="w-full bg-gray-800 border border-gray-700 rounded-md p-3 focus:ring-2 focus:ring-green-400 focus:outline-none transition-all" required>
-                    <textarea id="message" placeholder="Your Message" rows="5" class="w-full bg-gray-800 border border-gray-700 rounded-md p-3 focus:ring-2 focus:ring-green-400 focus:outline-none transition-all" required></textarea>
-                    
-                    <div>
-                        <button type="submit" class="w-full bg-green-400 text-gray-900 font-bold px-8 py-3 rounded-md hover:bg-green-300 transition-all duration-300">Send Message</button>
-                    </div>
-                     <p id="form-status" class="text-center mt-4 text-green-400"></p>
-                </form>
+  <input type="text" id="name" placeholder="Your Name" required>
+  <input type="email" id="email" placeholder="Your Email" required>
+  <textarea id="message" placeholder="Your Message" required></textarea>
+
+  <button type="submit">Send Message</button>
+  <p id="form-status"></p>
+</form>
 
             </section>
         </main>
@@ -404,31 +534,42 @@
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
 
-        // Contact Form Submission
-        const contactForm = document.getElementById('contact-form');
-        const formStatus = document.getElementById('form-status');
         
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            formStatus.textContent = "Thank you for your message! I'll get back to you soon.";
-            contactForm.reset();
-            setTimeout(() => { formStatus.textContent = "" }, 5000);
-        });
 
     </script>
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script type="text/javascript">
-        // IMPORTANT: Replace the placeholders below with your actual EmailJS Public API Key
-        // Example: emailjs.init("abc123...your real key...");
-        (function(){
-            const EMAILJS_PUBLIC_KEY = "GUnFfNgNpdq9Io8dP";
-            if (EMAILJS_PUBLIC_KEY === "GUnFfNgNpdq9Io8dP") {
-                console.warn("[EmailJS] Please set your actual Public API Key in the code.");
-            } else {
-                emailjs.init(EMAILJS_PUBLIC_KEY);
-            }
-        })();
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+  (function () {
+    emailjs.init("GzehASMk_QRxqkutE");
+  })();
+</script>
+
+<script>
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const status = document.getElementById("form-status");
+    status.innerText = "Sending...";
+
+    emailjs.send("service_px0ste8", "template_8dupa1j", {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+    })
+    .then(() => {
+        status.innerText = "Message sent successfully!";
+        this.reset();
+    })
+    .catch((error) => {
+        status.innerText = "Failed to send message. Try again.";
+        console.error(error);
+    });
+});
+</script>
+
+
+    
+</body>
 </body>
 </html>
 
